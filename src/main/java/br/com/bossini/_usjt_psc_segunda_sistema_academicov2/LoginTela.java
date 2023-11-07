@@ -5,7 +5,7 @@
 package br.com.bossini._usjt_psc_segunda_sistema_academicov2;
 
 import javax.swing.JOptionPane;
-
+import java.util.Properties;
 /**
  *
  * @author rodrigo
@@ -110,19 +110,24 @@ public class LoginTela extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        //pegar o login
-        String login = loginTextField.getText();
-        //pegar a senha
-        String senha = 
-                new String(senhaPasswordField.getPassword());
-        //verificar se login = senha = admin
-        if (login.equalsIgnoreCase("admin") 
-                && senha.equalsIgnoreCase("admin")){
-            //se for caso, dar boas vindas
-            JOptionPane.showMessageDialog(null, "Bem vindo!");
-        }else{
-            //senão, informar par usuário/senha inválidos
-            JOptionPane.showMessageDialog(null, "Par usuário/senha inválidos");
+        try{
+        
+            //pegar o login
+            String login = loginTextField.getText();
+            //pegar a senha
+            String senha = 
+                    new String(senhaPasswordField.getPassword());
+            var usuario = new Usuario(login, senha);
+            var dao = new UsuarioDAO(properties);
+            if(dao.existe(usuario) != null){
+                JOptionPane.showMessageDialog(null, "Bem vindo");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Usuário inválido");
+            }
+        }
+        catch(Exception e){
+        
         }
        
     }//GEN-LAST:event_okButtonActionPerformed

@@ -21,15 +21,21 @@ public class UsuarioDAO {
         //1. Construir uma fábrica de conexões
         var fabrica = new ConnectionFactory(properties);
         //2. Estabelecer uma conexão com o banco
-        
-        //3. Especificar o comando SQL
-        
-        //4. Substituir os eventuais placeholders
-        
-        //5. Executar o comando
-        
-        //6. Mover o cursor, verificando se o usuário existe
-        
-        //7. Devolver um objeto usuário, null
+        try(var conexao = fabrica.conectar()){
+            //3. Especificar o comando SQL
+            String sql = "SELECT * FROM tb_usuario WHERE nome = ? AND senha = ?";
+            try(var ps = conexao.prepareStatement(sql)){
+                //4. Substituir os eventuais placeholders
+                ps.setString(1, u.getLogin());
+                ps.setString(2, u.getSenha());
+                //5. Executar o comando
+                try(var rs = ps.executeQuery()){
+                    //6. Mover o cursor, verificando se o usuário existe
+                    //7. Devolver um objeto usuário, null
+                    return rs.next() ? u : null;
+                }
+            }
+            
+        }
     }
 }
