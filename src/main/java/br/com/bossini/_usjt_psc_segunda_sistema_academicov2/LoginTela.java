@@ -11,12 +11,17 @@ import javax.swing.JOptionPane;
  * @author rodrigo
  */
 public class LoginTela extends javax.swing.JFrame {
-
+    private Properties properties;
     /**
      * Creates new form LoginTela
      */
     public LoginTela() {
         initComponents();
+    }
+    
+    public LoginTela(java.util.Properties properties){
+        this();
+        this.properties = properties;
     }
 
     /**
