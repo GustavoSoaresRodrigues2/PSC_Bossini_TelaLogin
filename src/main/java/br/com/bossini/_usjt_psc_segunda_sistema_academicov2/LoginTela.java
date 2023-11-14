@@ -17,6 +17,7 @@ public class LoginTela extends javax.swing.JFrame {
      */
     public LoginTela() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     public LoginTela(java.util.Properties properties){
@@ -121,13 +122,16 @@ public class LoginTela extends javax.swing.JFrame {
             var dao = new UsuarioDAO(properties);
             if(dao.existe(usuario) != null){
                 JOptionPane.showMessageDialog(null, "Bem vindo");
+                var dashboardTela = new DashboardTela();
+                dashboardTela.setVisible(true);
+                dispose();
             }
             else{
                 JOptionPane.showMessageDialog(null, "Usuário inválido");
             }
         }
         catch(Exception e){
-        
+            e.printStackTrace();
         }
        
     }//GEN-LAST:event_okButtonActionPerformed
