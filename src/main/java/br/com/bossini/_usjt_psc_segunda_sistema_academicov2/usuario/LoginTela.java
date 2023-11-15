@@ -2,9 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.com.bossini._usjt_psc_segunda_sistema_academicov2;
+package br.com.bossini._usjt_psc_segunda_sistema_academicov2.usuario;
 
 import javax.swing.JOptionPane;
+
+import br.com.bossini._usjt_psc_segunda_sistema_academicov2.DAO.UsuarioDAO;
+import br.com.bossini._usjt_psc_segunda_sistema_academicov2.models.Usuario;
+
 import java.util.Properties;
 /**
  *

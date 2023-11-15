@@ -11,6 +11,8 @@ package br.com.bossini._usjt_psc_segunda_sistema_academicov2;
 import java.io.FileInputStream;
 import java.io.File;
 import java.util.Properties;
+
+import br.com.bossini._usjt_psc_segunda_sistema_academicov2.usuario.LoginTela;
 public class App {
 
     public static void main(String[] args) throws Exception{

@@ -2,13 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.bossini._usjt_psc_segunda_sistema_academicov2;
+package br.com.bossini._usjt_psc_segunda_sistema_academicov2.DAO;
 
 /**
  *
  * @author rodrigo
  */
 import java.util.Properties;
+
+import br.com.bossini._usjt_psc_segunda_sistema_academicov2.conecctions.ConnectionFactory;
+import br.com.bossini._usjt_psc_segunda_sistema_academicov2.models.Usuario;
 public class UsuarioDAO {
     
     private Properties properties;
@@ -23,7 +26,7 @@ public class UsuarioDAO {
         //2. Estabelecer uma conexão com o banco
         try(var conexao = fabrica.conectar()){
             //3. Especificar o comando SQL
-            String sql = "SELECT * FROM tb_usuario WHERE nome = ? AND senha = ?";
+            String sql = "SELECT * FROM tb_pessoa WHERE nome = ? AND senha = ?";
             try(var ps = conexao.prepareStatement(sql)){
                 //4. Substituir os eventuais placeholders
                 ps.setString(1, u.getLogin());
